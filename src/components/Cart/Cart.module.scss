@@ -1,0 +1,17 @@
+.cart {
+    position: fixed;
+    width: 25%;
+    top: 0;
+    right: 0;
+    background-color: white;
+    height: 100%;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+
+    .item {
+        margin: 1rem;
+    }
+
+    .itemImage {
+        width: 50px;
+    }
+}

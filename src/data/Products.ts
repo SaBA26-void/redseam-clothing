@@ -5,7 +5,7 @@ export interface ListingProduct {
   available_sizes: string[]
   cover_image: string
   description: string
-  id: string
+  id: number
   images: string[]
   name: string
   price: number
