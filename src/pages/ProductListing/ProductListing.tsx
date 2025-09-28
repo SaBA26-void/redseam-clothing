@@ -13,6 +13,7 @@ import ProductSort from "./ProductSort";
 import Pagination from "./Pagination";
 
 import "./index.scss";
+import Header from "../../components/Header";
 
 export default function ProductListing() {
   const [filters, setFilters] = useState<ProductListingFilters>({});
@@ -37,40 +38,47 @@ export default function ProductListing() {
   const total = productsListing ? productsListing.meta.total : 1;
 
   return (
-    <main>
-      <div className="product-listing-header">
-        <h1 className="product-listing-title">Products</h1>
-        <div className="product-listing-controls">
-          <p>
-            Showing {showingFrom}-{showingTo} of {total} results
-          </p>
-          <ProductFilter filters={filters} onChange={setFilters} />
-          <ProductSort sort={sort} onChange={setSort} />
-        </div>
-      </div>
-      <div className="filters-indicator">
-        {filters.price_from || filters.price_to ? (
-          <div>
-            Price:
-            {filters.price_from} - {filters.price_to}
-            <button onClick={() => setFilters({})}>X</button>
+    <div>
+      <Header />
+      <main>
+        <div className="product-listing-header">
+          <h1 className="product-listing-title">Products</h1>
+          <div className="product-listing-controls">
+            <p>
+              Showing {showingFrom}-{showingTo} of {total} results
+            </p>
+            <ProductFilter filters={filters} onChange={setFilters} />
+            <ProductSort sort={sort} onChange={setSort} />
           </div>
-        ) : null}
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
-          gap: "2.4rem",
-        }}
-      >
-        {productsListing?.data
-          ? productsListing.data.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))
-          : undefined}
-      </div>
-      <Pagination page={page} onChange={setPage} meta={productsListing?.meta} />
-    </main>
+        </div>
+        <div className="filters-indicator">
+          {filters.price_from || filters.price_to ? (
+            <div>
+              Price:
+              {filters.price_from} - {filters.price_to}
+              <button onClick={() => setFilters({})}>X</button>
+            </div>
+          ) : null}
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr 1fr",
+            gap: "2.4rem",
+          }}
+        >
+          {productsListing?.data
+            ? productsListing.data.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            : undefined}
+        </div>
+        <Pagination
+          page={page}
+          onChange={setPage}
+          meta={productsListing?.meta}
+        />
+      </main>
+    </div>
   );
 }

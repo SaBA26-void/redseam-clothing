@@ -25,3 +25,15 @@
   height: 4rem;
   border-radius: 50%;
 }
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+
+  span {
+    margin-left: 0.8rem;
+  }
+}
