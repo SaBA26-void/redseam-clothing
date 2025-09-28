@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 
 import { type AuthResponse } from "./data/User";
 import { type CartItem } from "./data/Cart";
@@ -16,19 +16,6 @@ import Checkout from "./pages/Checkout";
 function App() {
   const [user, setUser] = useState<AuthResponse | null>(null);
   const [cart, setCart] = useState<CartItem[] | null>(null);
-
-  useEffect(() => {
-    const userData = localStorage.getItem("user");
-
-    if (!userData) {
-      // Explicitly redirect to /register
-      if (window.location.pathname !== "/register") {
-        window.location.href = "/register";
-      }
-    } else {
-      setUser(JSON.parse(userData) as AuthResponse);
-    }
-  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
