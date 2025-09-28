@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react'
 import type { FetchProductsMeta } from '../../data/Products'
 
+import './Pagination.scss'
+
 export interface PaginationProps {
   meta?: FetchProductsMeta
   page: number
@@ -21,14 +23,14 @@ export default function Pagination(props: PaginationProps) {
   const totalPages = Math.ceil(meta.total / meta.per_page)
 
   return (
-    <div>
+    <div className="pagination">
       <button onClick={handlePaginationClick} value={page - 1} disabled={page == 1}>{'<'}</button>
       {Array.from(Array(totalPages).keys()).map((key) => (
         <button
           key={key}
           onClick={handlePaginationClick}
           value={key + 1}
-          style={page === key + 1 ? {border: '1px solid red'} : undefined}
+          className={page === key + 1 ? 'active' : undefined}
         >
           {key + 1}
         </button>

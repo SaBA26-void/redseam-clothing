@@ -1,0 +1,16 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  button {
+    margin: 10px;
+    background: none;
+    border: 1px solid gray;
+    color: black;
+
+    &.active {
+      border-color: orange;
+      color: orange;
+    }
+  }
+}

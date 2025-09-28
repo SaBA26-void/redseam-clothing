@@ -1,0 +1,38 @@
+.product-sort {
+  position: relative;
+
+  .button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .product-sort-overlay {
+    display: none;
+
+    &--open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      top: calc(100% + 10px);
+      width: max-content;
+    }
+
+    h4 {
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .button {
+      padding: 8px;
+      margin: 2px;
+      cursor: pointer;
+    }
+  }
+}

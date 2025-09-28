@@ -1,8 +1,9 @@
 import React, { useState, useCallback, type ChangeEvent, useEffect } from 'react'
 
-import './ProductFilter.css'
 import type { ProductListingFilters } from '../../data/Products'
 import useOutsideClick from '../../hooks/useOutsideClick'
+
+import './ProductFilter.scss'
 
 export interface ProductFilterProps {
   onChange: (filters: ProductListingFilters) => void
@@ -48,12 +49,12 @@ export default function ProductFilter(props: ProductFilterProps) {
   return (
     <div ref={ref} className="product-filter">
       <div onClick={handleClick}>
-        <button>Filter</button>
+        <button className="button">Filter</button>
       </div>
       <div className={`product-filter-overlay ${isActive ? 'product-filter-overlay--open' : ''}`}>
         <form onSubmit={handleSubmit}>
           <h4>Select price</h4>
-          <div>
+          <div className="inputs-wrapper">
             <input
               onChange={handlePriceFromChange}
               value={priceFrom?.toString() || ''}
@@ -69,7 +70,9 @@ export default function ProductFilter(props: ProductFilterProps) {
               placeholder="To"
             />
           </div>
-          <button type="submit">Apply</button>
+          <div className="apply-wrapper">
+            <button type="submit">Apply</button>
+          </div>
         </form>
       </div>
     </div>
