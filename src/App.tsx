@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router";
+import { useState } from "react";
+import { Routes, Route } from "react-router";
 
 import { type AuthResponse } from "./data/User";
 import { type CartItem } from "./data/Cart";
