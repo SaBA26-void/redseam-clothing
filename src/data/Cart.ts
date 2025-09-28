@@ -9,7 +9,7 @@ export interface CartItem extends ListingProduct {
 }
 
 export function addToCart(productId: number, quantity: number, size: string, color: string): Promise<CartItem[]> {
-    const token = JSON.parse(localStorage.getItem('user') || '')?.token
+    const token = JSON.parse(localStorage.getItem('user') || '{}')?.token
 
     const formData = new FormData()
     formData.append('quantity', quantity.toString())
@@ -26,7 +26,7 @@ export function addToCart(productId: number, quantity: number, size: string, col
 }
 
 export function fetchCart(): Promise<CartItem[]> {
-    const token = JSON.parse(localStorage.getItem('user') || '')?.token
+    const token = JSON.parse(localStorage.getItem('user') || '{}')?.token
 
     return get<CartItem[]>(
         '/cart',
@@ -37,7 +37,7 @@ export function fetchCart(): Promise<CartItem[]> {
 }
 
 export function patchCart(productId: number, quantity: number) {
-    const token = JSON.parse(localStorage.getItem('user') || '')?.token
+    const token = JSON.parse(localStorage.getItem('user') || '{}')?.token
 
     return patchFormData(
         `/cart/products/${productId}`,
@@ -49,7 +49,7 @@ export function patchCart(productId: number, quantity: number) {
 }
 
 export function removeCartItem(productId: number) {
-    const token = JSON.parse(localStorage.getItem('user') || '')?.token
+    const token = JSON.parse(localStorage.getItem('user') || '{}')?.token
 
     return fetchDelete(
         `/cart/products/${productId}`,
@@ -68,7 +68,7 @@ interface CheckoutData {
 }
 
 export function checkout(checkoutData: CheckoutData) {
-    const token = JSON.parse(localStorage.getItem('user') || '')?.token
+    const token = JSON.parse(localStorage.getItem('user') || '{}')?.token
 
     return post('/cart/checkout', checkoutData, {
         'Authorization': `Bearer ${token}`,
