@@ -1,0 +1,16 @@
+:root {
+  --Red-color: #ff4000;
+  --Dark-blue: #10151f;
+  --Dark-blue-2: #3e424a;
+  --white: #ffffff;
+  --Grey: #f8f6f7;
+  --Grey-2: #e1dfe1;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}

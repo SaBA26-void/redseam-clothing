@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1920px;
+  padding: 1rem 10rem;
+}
+
+.headersWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+}
+.profileImg {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}

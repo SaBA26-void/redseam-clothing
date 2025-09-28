@@ -1,0 +1,40 @@
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+  border: 1px solid var(--Grey-2);
+  border-radius: 8px;
+  padding: 0 1.2rem;
+}
+.inputWrapper input {
+  padding: 10px 0;
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.inputWrapper label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--Dark-blue-2);
+  pointer-events: none;
+}
+
+.blue {
+  color: var(--Dark-blue-2);
+}
+.red {
+  color: var(--Red-color);
+}
+
+.inputWrapper input:focus + label,
+.inputWrapper input:not(:placeholder-shown) + label {
+  display: none;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
