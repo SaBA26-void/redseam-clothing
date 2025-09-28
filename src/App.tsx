@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router";
 
+import { type AuthResponse } from "./data/User";
+import { UserContext } from "./contexts/UserContext";
 import ProductListing from "./pages/ProductListing";
+import Registration from "./pages/Registration";
+import Login from "./pages/Login";
 
 import "./App.css";
-import Registration from "./pages/Registration";
-import { useEffect, useState } from "react";
-import { type AuthResponse } from "./data/User";
-
-import { UserContext } from "./contexts/UserContext";
 
 function App() {
   const [user, setUser] = useState<AuthResponse | null>(null);
@@ -25,6 +25,7 @@ function App() {
       <Routes>
         <Route index element={<ProductListing />} />
         <Route path="/register" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </UserContext.Provider>
   );
