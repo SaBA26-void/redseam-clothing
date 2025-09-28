@@ -9,18 +9,18 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <Link to="/">
-        <img src="./Logo.svg" alt="logo" />
+        <img src="/Logo.svg" alt="logo" />
       </Link>
       {userContext?.user && (
         <div className={styles.headersWrapper}>
-          <img src="./shopping-cart-dark.svg" alt="" />
+          <img src="/shopping-cart-dark.svg" alt="" />
           <div className={styles.userProfile}>
             <img
               className={styles.profileImg}
               src={userContext.user.user.avatar || undefined}
               alt="user-img"
             />
-            <img src="./chevron-down.svg" alt="chveron-down" />
+            <img src="/chevron-down.svg" alt="chveron-down" />
           </div>
         </div>
       )}

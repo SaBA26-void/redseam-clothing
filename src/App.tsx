@@ -5,6 +5,7 @@ import { type AuthResponse } from "./data/User";
 import { UserContext } from "./contexts/UserContext";
 import ProductListing from "./pages/ProductListing";
 import Registration from "./pages/Registration";
+import Product from "./pages/Product";
 import Login from "./pages/Login";
 
 import "./App.css";
@@ -26,6 +27,7 @@ function App() {
         <Route index element={<ProductListing />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<Product />} />
       </Routes>
     </UserContext.Provider>
   );

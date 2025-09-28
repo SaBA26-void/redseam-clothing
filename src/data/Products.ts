@@ -10,6 +10,11 @@ export interface ListingProduct {
   name: string
   price: number
   release_year: string
+  brand: {
+    id: number
+    name: string
+    image: string
+  }
 }
 
 export type SortOrder = 'price' | '-price' | 'created_at' | ''
@@ -48,4 +53,8 @@ export function fetchProducts(filters: ProductListingFilters, sort: SortOrder = 
   queryString.append('page', page.toString())
 
   return get<FetchProducts>(`/products?${queryString.toString()}`)
+}
+
+export function fetchProductById(id: number): Promise<ListingProduct> {
+  return get<ListingProduct>(`/products/${id}`)
 }
