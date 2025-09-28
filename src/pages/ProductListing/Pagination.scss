@@ -1,16 +1,59 @@
+  :root {
+  --Red-color: #ff4000;
+  --Dark-blue: #10151f;
+  --Dark-blue-2: #3e424a;
+  --Dark-grey: #212B36;
+  --white: #ffffff;
+  --Grey: #f8f6f7;
+  --Grey-2: #e1dfe1;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
 .pagination {
   display: flex;
   justify-content: center;
+  padding: 1rem;
+  margin: 3rem 0 0 0;
+  
+  button.side-btn {
+    border: 0;
+    color: var(--Dark-blue);
+  }
 
   button {
     margin: 10px;
-    background: none;
-    border: 1px solid gray;
-    color: black;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: var(--white);
+    border: 1px solid var(--Grey);
+    color: var(--Dark-grey);
+    border-radius: 4px;
+    cursor: pointer;
+
 
     &.active {
-      border-color: orange;
-      color: orange;
+      border-color: var(--Red-color);
+      color: var(--Red-color);
+    }
+
+    &.active:hover {
+      color: var(--white);
     }
   }
+}
+
+button:hover {
+  background-color: var(--Red-color);
+  color: var(--white);
+  opacity: 0.95;
+}
+
+button:active {
+  transform: scale(0.95);
 }

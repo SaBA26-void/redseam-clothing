@@ -1,7 +1,7 @@
 // todo use env
 export const API_BASE_URL = 'https://api.redseam.redberryinternship.ge/api'
 
-export const post = async <R>(url: string, data: unknown, headers: Record<string, string> | undefined = undefined): Promise<R> => {
+export const post = async (url: string, data: unknown, headers: Record<string, string> | undefined = undefined) => {
   return fetch(API_BASE_URL + url, {
     method: 'POST',
     headers: {
@@ -9,7 +9,7 @@ export const post = async <R>(url: string, data: unknown, headers: Record<string
       ...headers,
     },
     body: JSON.stringify(data),
-  }).then(data => data.json())
+  })
 }
 
 export const postFormData = async <R>(url: string, data: FormData, headers: Record<string, string> | undefined = undefined): Promise<R> => {

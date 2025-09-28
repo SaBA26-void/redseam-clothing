@@ -63,7 +63,10 @@ export default function ProductFilter(props: ProductFilterProps) {
   return (
     <div ref={ref} className="product-filter">
       <div onClick={handleClick}>
-        <button className="button">Filter</button>
+        <button className="button">
+          <img src="adjustments-horizontal.svg" alt="" />
+          Filter
+        </button>
       </div>
       <div
         className={`product-filter-overlay ${

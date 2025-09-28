@@ -5,8 +5,9 @@ import {
   removeCartItem,
   type CartItem,
 } from "../../data/Cart";
-import styles from "./Cart.module.scss";
 import { CartContext } from "../../contexts/CartContext";
+
+import "./CartItem.scss";
 
 export interface CartItemProps {
   item: CartItem;
@@ -37,37 +38,40 @@ export default function CartItem(props: CartItemProps) {
   const colorIndex = item.available_colors.indexOf(item.color);
 
   return (
-    <div className={styles.item} key={item.id}>
+    <div className="cart-item" key={item.id}>
       <img
-        className={styles.itemImage}
+        className="cart-item-img"
         src={item.images[colorIndex]}
         alt={item.name}
       />
       <div>
-        <span>{item.name}</span>
-        <span>
-          {item.quantity} x ${item.price}
-        </span>
+        <div>
+          <div className="cart-item-title-wrapper">
+            <h4>{item.name}</h4>
+            <span>$ {item.total_price}</span>
+          </div>
+        </div>
+        <p className="cart-item-details">{item.color}</p>
+        <p className="cart-item-details">{item.size}</p>
+        <div className="cart-item-controls">
+          <div className="cart-item-quantity">
+            <button
+              disabled={item.quantity === 1}
+              onClick={handleChange(item.quantity - 1)}
+            >
+              -
+            </button>
+            {item.quantity}
+            <button
+              disabled={item.quantity === 5}
+              onClick={handleChange(item.quantity + 1)}
+            >
+              +
+            </button>
+          </div>
+          <button onClick={handleRemove}>Remove</button>
+        </div>
       </div>
-      <span>${item.total_price}</span>
-      <span>{item.color}</span>
-      <span>{item.size}</span>
-      <div>
-        <button
-          disabled={item.quantity === 1}
-          onClick={handleChange(item.quantity - 1)}
-        >
-          -
-        </button>
-        {item.quantity}
-        <button
-          disabled={item.quantity === 5}
-          onClick={handleChange(item.quantity + 1)}
-        >
-          +
-        </button>
-      </div>
-      <button onClick={handleRemove}>Remove</button>
     </div>
   );
 }

@@ -1,0 +1,63 @@
+.checkout {
+    max-width: 160rem;
+    margin: auto;
+    
+    &-content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    h1 {
+        font-size: 4.2rem;
+    }
+
+
+
+    form {
+        width: 80%;
+        background-color: var(--Grey);
+        border-radius: 16px;
+        margin-right: 5rem;
+        padding: 4rem 3rem;
+
+        > div {
+            width: 60%;
+
+            > div {
+                display: flex;
+                margin-bottom: 2.4rem;
+                border-radius: 10px;
+
+                &:nth-child(3) {
+                    background-color: white;
+                }
+
+                > div {
+                    width: 100%;
+                    margin: 1rem;
+                    background-color: white;
+                    margin: 0;
+
+                    * {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: var(--Dark-blue-2);
+        }
+    }
+
+    .cart-totals {
+        margin-top: 10rem;
+    }
+
+    &-pay {
+        width: 100%;
+        display: block;
+    }
+}

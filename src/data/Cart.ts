@@ -1,4 +1,4 @@
-import { fetchDelete, get, patchFormData, postFormData } from "./ApiClient"
+import { fetchDelete, get, patchFormData, post, postFormData } from "./ApiClient"
 import type { ListingProduct } from "./Products"
 
 export interface CartItem extends ListingProduct {
@@ -57,4 +57,21 @@ export function removeCartItem(productId: number) {
             'Authorization': `Bearer ${token}`
         },
     )
+}
+
+interface CheckoutData {
+    name: string,
+    surname: string,
+    email: string,
+    zip_code: string,
+    address: string,
+}
+
+export function checkout(checkoutData: CheckoutData) {
+    const token = JSON.parse(localStorage.getItem('user') || '')?.token
+
+    return post('/cart/checkout', checkoutData, {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+    })
 }

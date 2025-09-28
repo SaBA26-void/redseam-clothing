@@ -1,3 +1,20 @@
+  :root {
+  --Red-color: #ff4000;
+  --Dark-blue: #10151f;
+  --Dark-blue-2: #3e424a;
+  --white: #ffffff;
+  --Grey: #f8f6f7;
+  --Grey-2: #e1dfe1;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
 .product-sort {
   position: relative;
 
@@ -16,17 +33,22 @@
       flex-direction: column;
       position: absolute;
       right: 0;
-      background-color: white;
+      background-color: var(--white);
       padding: 10px;
       border-radius: 10px;
-      border: 1px solid gray;
+      border: 1px solid var();
       top: calc(100% + 10px);
       width: max-content;
+      color: var(--Dark-blue);
+      font-size: 1.6rem;
+      font-weight: 400;
     }
 
     h4 {
       padding: 10px;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: var(--Dark-blue);
     }
 
     .button {

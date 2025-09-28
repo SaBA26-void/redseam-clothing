@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import styles from "./Button.module.css";
 
 interface ButtonProprs {
@@ -13,6 +13,7 @@ interface ButtonProprs {
     | "Grey"
     | "White-2";
   onClick?: () => void;
+  className?: string;
 }
 
 const Button = ({
@@ -21,6 +22,7 @@ const Button = ({
   children,
   color = "Red-color",
   onClick,
+  className,
 }: ButtonProprs) => {
   const classNames = [
     styles.btn,
@@ -30,7 +32,11 @@ const Button = ({
     .filter(Boolean)
     .join(" ");
   return (
-    <button type={type} className={classNames} onClick={onClick}>
+    <button
+      type={type}
+      className={`${classNames} ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

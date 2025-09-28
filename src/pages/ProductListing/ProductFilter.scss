@@ -1,5 +1,28 @@
+  :root {
+  --Red-color: #ff4000;
+  --Dark-blue: #10151f;
+  --Dark-blue-2: #3e424a;
+  --white: #ffffff;
+  --Grey: #f8f6f7;
+  --Grey-2: #e1dfe1;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.product-filter .product-filter-overlay form {
+  border: 0 !important;
+}
+
 .product-filter {
   position: relative;
+  border: 0 !important;
+
 
   .button {
     background: none;
@@ -15,20 +38,28 @@
       display: block;
       position: absolute;
       right: 0;
-      background-color: white;
+      background-color: var(--white);
       padding: 10px;
-      border-radius: 10px;
-      border: 1px solid gray;
+      border-radius: 8px;
+      border: 0 !important;
       top: calc(100% + 10px);
     }
 
     h4 {
-      font-weight: bold;
+      font-weight: 600;
       margin-bottom: 10px;
+      font-size: 1.6rem;
+      color: var(--Dark-blue);
     }
 
     form {
       padding: 10px;
+      border-radius: 8px;
+      border: solid 1px var(--Grey-2);
+      outline: 0;
+      gap: 0.4rem;
+      font-size: 1.4rem;
+      color: var(--Dark-blue-2);
 
       .inputs-wrapper {
         display: flex;
@@ -40,8 +71,32 @@
       }
 
       .apply-wrapper {
-        text-align: end;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        text-align: center;
+      }
+
+      .apply-wrapper button {
+        border: 0;
+        cursor: pointer;
+        background-color: var(--Red-color);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: 8px;
+      }
+
+      .apply-wrapper button :hover {
+        background-color: opacity(80%);
+        transform: scale(0.9);
       }
     }
   }
+  .product-filter-overlay--open {
+    background-color: var(--white);
+    border: 0 !important;
+    border-radius: 8px;
+  
+  }
 }
+

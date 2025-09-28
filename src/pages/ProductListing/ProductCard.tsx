@@ -12,9 +12,11 @@ export default function ProductCard(props: ProductCardProps) {
 
   return (
     <Link className="product-card" to={`/product/${id}`}>
-      <img style={{ maxWidth: "100%" }} src={cover_image} />
+      <div className="product-card-background">
+        <img style={{ maxWidth: "100%" }} src={cover_image} />
+      </div>
       <p>{name}</p>
-      <p>$ {price}</p>
+      <p className="product-card-price">$ {price}</p>
     </Link>
   );
 }

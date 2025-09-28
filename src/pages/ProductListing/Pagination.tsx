@@ -27,6 +27,7 @@ export default function Pagination(props: PaginationProps) {
   return (
     <div className="pagination">
       <button
+        className="side-btn"
         onClick={handlePaginationClick}
         value={page - 1}
         disabled={page == 1}
@@ -44,6 +45,7 @@ export default function Pagination(props: PaginationProps) {
         </button>
       ))}
       <button
+        className="side-btn"
         onClick={handlePaginationClick}
         value={page + 1}
         disabled={page == totalPages}

@@ -4,6 +4,10 @@
   border: 1px solid var(--Grey-2);
   border-radius: 8px;
   padding: 0 1.2rem;
+
+  div {
+    background-color: white;
+  }
 }
 .inputWrapper input {
   padding: 10px 0;

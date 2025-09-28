@@ -25,6 +25,7 @@ const Registration = () => {
         if (userContext) {
           userContext.setUser(userData);
           localStorage.setItem("user", JSON.stringify(userData));
+          navigate("/products"); // Navigate to product listing page after successful login
         }
       })
       .catch(console.error);

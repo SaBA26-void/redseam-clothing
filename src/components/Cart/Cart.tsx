@@ -1,8 +1,10 @@
-import { useContext, useEffect, useMemo } from "react";
-import styles from "./Cart.module.scss";
+import { useContext, useEffect } from "react";
+import "./Cart.scss";
 import { CartContext } from "../../contexts/CartContext";
 import { fetchCart } from "../../data/Cart";
 import CartItem from "./CartItem";
+import CartTotals from "./CartTotals";
+import { Link } from "react-router";
 
 export interface CartProps {
   open?: boolean;
@@ -24,33 +26,22 @@ export default function Cart(props: CartProps) {
     return null;
   }
 
-  const itemsSubtotal = useMemo(() => {
-    return cartContext?.cart?.reduce(
-      (prev, current) => prev + current.total_price,
-      0
-    );
-  }, [cartContext?.cart]);
-
   return (
-    <div className={styles.cart}>
-      <h3>Shopping cart ({cartContext?.cart?.length})</h3>
+    <div className="shopping-cart">
       <div>
-        {cartContext?.cart?.map((item) => (
-          <CartItem item={item} key={item.id} />
-        ))}
+        <h3 className="shopping-cart-heading">
+          Shopping cart ({cartContext?.cart?.length})
+        </h3>
+        <div className="shopping-cart-item">
+          {cartContext?.cart?.map((item) => (
+            <CartItem item={item} key={item.id} />
+          ))}
+        </div>
       </div>
       <div>
-        <div>
-          <span>Items subtotal</span>
-          <span>$ {itemsSubtotal}</span>
-        </div>
-        <div>
-          <span>Delivery</span>
-          <span>$ 5</span>
-        </div>
-        <div>
-          <span>Total</span>
-          <span>$ {(itemsSubtotal || 0) + 5}</span>
+        <CartTotals />
+        <div className="shopping-cart-cta">
+          <Link to="/checkout">Go to checkout</Link>
         </div>
       </div>
     </div>

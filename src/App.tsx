@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 
 import "./App.css";
 import { CartContext } from "./contexts/CartContext";
+import Checkout from "./pages/Checkout";
 
 function App() {
   const [user, setUser] = useState<AuthResponse | null>(null);
@@ -19,7 +20,12 @@ function App() {
   useEffect(() => {
     const userData = localStorage.getItem("user");
 
-    if (userData) {
+    if (!userData) {
+      // Explicitly redirect to /register
+      if (window.location.pathname !== "/register") {
+        window.location.href = "/register";
+      }
+    } else {
       setUser(JSON.parse(userData) as AuthResponse);
     }
   }, []);
@@ -28,10 +34,12 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <CartContext.Provider value={{ cart, setCart }}>
         <Routes>
-          <Route index element={<ProductListing />} />
-          <Route path="/register" element={<Registration />} />
+          <Route index element={<Registration />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/products" element={<ProductListing />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<div>SUCCESS</div>} />
         </Routes>
       </CartContext.Provider>
     </UserContext.Provider>

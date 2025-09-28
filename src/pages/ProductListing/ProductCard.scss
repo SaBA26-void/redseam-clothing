@@ -1,5 +1,40 @@
+  :root {
+  --Red-color: #ff4000;
+  --Dark-blue: #10151f;
+  --Dark-blue-2: #3e424a;
+  --white: #ffffff;
+  --Grey: #f8f6f7;
+  --Grey-2: #e1dfe1;
+}
+
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
 .product-card {
-  color: black;
+  color: var(--Dark-blue);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.product-card-background {
+  min-height: 60rem;
+}
+
+.product-card-background img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.product-card-price {
+  margin-top: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--Dark-blue);
 }

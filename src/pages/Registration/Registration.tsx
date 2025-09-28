@@ -25,6 +25,7 @@ const Registration = () => {
         if (userContext) {
           userContext.setUser(userData);
           localStorage.setItem("user", JSON.stringify(userData));
+          navigate("/products"); // Navigate to product listing page after successful registration
         }
       })
       .catch(console.error);
@@ -32,9 +33,9 @@ const Registration = () => {
 
   useEffect(() => {
     if (userContext && userContext.user) {
-      navigate("/");
+      navigate("/products");
     }
-  }, [userContext]);
+  }, [userContext, navigate]);
 
   return (
     <>

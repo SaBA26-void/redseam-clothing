@@ -46,6 +46,7 @@ export default function ProductSort(props: ProductSortProps) {
     <div ref={ref} className="product-sort">
       <button className="button" onClick={handleSortClick}>
         {getSortText(sort)}
+        <img src="chevron-down.svg" alt="" />
       </button>
       <div
         className={`product-sort-overlay ${

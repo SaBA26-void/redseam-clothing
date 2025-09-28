@@ -14,6 +14,7 @@ import Pagination from "./Pagination";
 
 import "./index.scss";
 import Header from "../../components/Header";
+import useRedirectUnauthorized from "../../hooks/useRedirectUnauthorized";
 
 export default function ProductListing() {
   const [filters, setFilters] = useState<ProductListingFilters>({});
@@ -22,6 +23,8 @@ export default function ProductListing() {
   const [productsListing, setProductsListing] = useState<FetchProducts | null>(
     null
   );
+
+  useRedirectUnauthorized();
 
   useEffect(() => {
     fetchProducts(filters, sort, page).then((data) => {
@@ -40,7 +43,7 @@ export default function ProductListing() {
   return (
     <div>
       <Header />
-      <main>
+      <main className="main-div-productlisting">
         <div className="product-listing-header">
           <h1 className="product-listing-title">Products</h1>
           <div className="product-listing-controls">
