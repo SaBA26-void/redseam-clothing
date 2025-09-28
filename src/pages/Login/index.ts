@@ -1,3 +1,3 @@
-import Registration from "./login";
+import Registration from "./Login";
 
 export default Registration;
